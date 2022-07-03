@@ -2,10 +2,10 @@
 downloads: ~/.ansible-downloads/
 
 configure_dotfiles: true
-configure_terminal: false
+configure_terminal: true
 configure_osx: false
 configure_sudoers: false
-configure_dock: true
+configure_dock: false
 
 dockitems_remove:
 # - Launchpad
@@ -35,11 +35,14 @@ dotfiles_files:
 
 homebrew_installed_packages:
   # - bash-completion
+  - zsh
   - git
   # - go
   - gpg
   - node
   - wget
+  - fzf
+  - tmux
 
 homebrew_taps:
   - homebrew/core
@@ -50,6 +53,9 @@ homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - font-fira-code
   - visual-studio-code
+  - iterm2
+
+homedir: "~"
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []
