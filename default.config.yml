@@ -32,6 +32,7 @@ dotfiles_files:
   - .inputrc
   - .osx
   - .vimrc
+  - .tmux.conf
 
 homebrew_installed_packages:
   - zsh
