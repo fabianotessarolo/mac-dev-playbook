@@ -49,16 +49,16 @@ homebrew_taps:
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
   - font-fira-code
+  - font-fira-mono
   - visual-studio-code
   - iterm2
 
 homedir: "~"
 
 
-iterm2_dynamic_profiles: []
-iterm2_dynamic_profiles_local: []
+iterm2_dynamic_profiles_local: ['itermProfile.json']
 iterm2_preferences_custom_folder: ""
-iterm2_default_profile_guid: ""
+iterm2_default_profile_guid: "DFB89A5E-1958-4BA9-9859-8DE1F8146B64"
 iterm2_shell_integration: yes
 
 # See `geerlingguy.mas` role documentation for usage instructions.

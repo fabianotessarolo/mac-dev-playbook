@@ -19,7 +19,7 @@
     mode: 'go-w'
     recurse: yes
 
-- name: Set default sheell
+- name: Set default shell
   command: 'chsh -s /bin/zsh {{ ansible_user_id }} '
   become: true
 
@@ -30,7 +30,7 @@
 
 - name: Ensure local DynamicProfiles are copied to iTerm2 directory.
   copy:
-    src: "{{ item }}"
+    src: "{{ role_path }}/files/{{ item }}"
     dest: "~/Library/Application Support/iTerm2/DynamicProfiles/{{ item | basename }}"
     remote_src: yes
     backup: no
