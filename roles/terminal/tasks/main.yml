@@ -1,0 +1,58 @@
+---
+# - name: Install Fuzzy Finde
+#   command: "$(brew --prefix)/opt/fzf/install"
+
+- name: clone oh-my-zsh for users
+  git:
+    repo: 'https://github.com/robbyrussell/oh-my-zsh.git'
+    dest: '{{ homedir }}/.oh-my-zsh'
+    depth: 1
+    clone: yes
+    update: yes
+
+- name: set permissions of oh-my-zsh for users
+  file:
+    path: '{{ homedir }}/.oh-my-zsh'
+    # Prevent the cloned repository from having insecure permissions. Failing to do
+    # so causes compinit() calls to fail with "command not found: compdef" errors
+    # for users with insecure umasks (e.g., "002", allowing group writability).
+    mode: 'go-w'
+    recurse: yes
+
+- name: Set default sheell
+  command: 'chsh -s /bin/zsh {{ ansible_user_id }} '
+  become: true
+
+- name: Ensure iTerm directories are initialized if they are not already.
+  command: "open -a /Applications/iTerm.app"
+  args:
+    creates: "~/Library/Application Support/iTerm2/DynamicProfiles/"
+
+- name: Ensure local DynamicProfiles are copied to iTerm2 directory.
+  copy:
+    src: "{{ item }}"
+    dest: "~/Library/Application Support/iTerm2/DynamicProfiles/{{ item | basename }}"
+    remote_src: yes
+    backup: no
+  become: false
+  with_items: "{{ iterm2_dynamic_profiles_local }}"
+  when: iterm2_dynamic_profiles_local is defined
+
+# iTerm2 will need to be restarted for preference changes to kick in.
+- name: Ensure preferences are loaded from a custom folder.
+  command: "{{ item }}"
+  with_items:
+    - "defaults write com.googlecode.iterm2 'PrefsCustomFolder' -string '{{ iterm2_preferences_custom_folder }}'"
+    - "defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder true"
+  when: iterm2_preferences_custom_folder is defined and iterm2_preferences_custom_folder
+
+# If loading preferences from a folder, user probably shouldn't set this.
+- name: Ensure configured profile is set to default.
+  command: "defaults write com.googlecode.iterm2 'Default Bookmark Guid' -string '{{ iterm2_default_profile_guid }}'"
+  when: iterm2_default_profile_guid is defined and iterm2_default_profile_guid
+
+- name: Ensure shell integration is installed.
+  shell: curl -L https://iterm2.com/misc/install_shell_integration.sh | bash
+  args:
+    warn: no
+  when: iterm2_shell_integration is defined and iterm2_shell_integration

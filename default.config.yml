@@ -34,11 +34,8 @@ dotfiles_files:
   - .vimrc
 
 homebrew_installed_packages:
-  # - bash-completion
   - zsh
   - git
-  # - go
-  - gpg
   - node
   - wget
   - fzf
@@ -56,6 +53,13 @@ homebrew_cask_apps:
   - iterm2
 
 homedir: "~"
+
+
+iterm2_dynamic_profiles: []
+iterm2_dynamic_profiles_local: []
+iterm2_preferences_custom_folder: ""
+iterm2_default_profile_guid: ""
+iterm2_shell_integration: yes
 
 # See `geerlingguy.mas` role documentation for usage instructions.
 mas_installed_apps: []
