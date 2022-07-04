@@ -19,7 +19,7 @@
           "Alpha Component" : 1,
           "Green Component" : 0.98277664184570312
         },
-        "Normal Font" : "FiraCodeNerdFontCompleteM-Retina 14",
+        "Normal Font" : "FiraCodeNerdFontCompleteM-Retina 16",
         "Bold Color" : {
           "Red Component" : 0.96355170011520386,
           "Color Space" : "Calibrated",
@@ -117,7 +117,7 @@
         },
         "Custom Command" : "No",
         "ASCII Anti Aliased" : true,
-        "Non Ascii Font" : "FiraCodeNerdFontCompleteM-Retina 14",
+        "Non Ascii Font" : "FiraCodeNerdFontCompleteM-Retina 16",
         "Vertical Spacing" : 1,
         "Use Bold Font" : true,
         "Option Key Sends" : 0,
