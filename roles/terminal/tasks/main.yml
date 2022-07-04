@@ -1,6 +1,6 @@
 ---
-# - name: Install Fuzzy Finde
-#   command: "$(brew --prefix)/opt/fzf/install"
+- name: Install Fuzzy Finder Scripts
+  shell: "$(brew --prefix)/opt/fzf/install --all"
 
 - name: clone oh-my-zsh for users
   git:
