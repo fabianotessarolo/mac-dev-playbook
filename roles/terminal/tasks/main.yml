@@ -23,6 +23,12 @@
   command: 'chsh -s /bin/zsh {{ ansible_user_id }} '
   become: true
 
+- name: Ensures iTerm Directory Exists
+  file:
+    path: '~/Library/Application Support/iTerm2/DynamicProfiles/'
+    recurse: yes
+    state: directory
+
 - name: Ensure iTerm directories are initialized if they are not already.
   command: "open -a /Applications/iTerm.app"
   args:

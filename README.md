@@ -16,13 +16,11 @@ This playbook installs and configures most of the software I use on my Mac for w
 > Note: If some Homebrew commands fail, you might need to agree to Xcode's license or fix some other Brew issue. Run `brew doctor` to see if this is the case.
 
 ### Running a specific set of tagged tasks
-
 You can filter which part of the provisioning process to run by specifying a set of tags using `ansible-playbook`'s `--tags` flag. The tags available are `dotfiles`, `homebrew`, `mas`, `extra-packages` and `osx`.
 
     ansible-playbook main.yml -K --tags "dotfiles,homebrew"
 
 ## Overriding Defaults
-
 Not everyone's development environment and preferred software configuration is the same.
 
 You can override any of the defaults configured in `default.config.yml` by creating a `config.yml` file and setting the overrides in that file. For example, you can customize the installed packages and apps with something like:
@@ -66,24 +64,5 @@ dockitems_persist:
 
 Any variable can be overridden in `config.yml`; see the supporting roles' documentation for a complete list of available variables.
 
-### Configuration to be added:
-
-  - I have vim configuration in the repo, but I still need to add the actual installation:
-    ```
-    mkdir -p ~/.vim/autoload
-    mkdir -p ~/.vim/bundle
-    cd ~/.vim/autoload
-    curl https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim > pathogen.vim
-    cd ~/.vim/bundle
-    git clone git://github.com/scrooloose/nerdtree.git
-    ```
-
-## Testing the Playbook
-
-Many people have asked me if I often wipe my entire workstation and start from scratch just to test changes to the playbook. Nope! Instead, I posted instructions for how I build a [Mac OS X VirtualBox VM](https://github.com/geerlingguy/mac-osx-virtualbox-vm), on which I can continually run and re-run this playbook to test changes and make sure things work correctly.
-
-Additionally, this project is [continuously tested on GitHub Actions' macOS infrastructure](https://github.com/geerlingguy/mac-dev-playbook/actions?query=workflow%3ACI).
-
 ## Author
-
-This project forks idea from  [Jeff Geerling](https://www.jeffgeerling.com/) (originally inspired by [MWGriffin/ansible-playbooks](https://github.com/MWGriffin/ansible-playbooks)).
+This project forks and compile mutiple ideas like initial work done by [Jeff Geerling](https://www.jeffgeerling.com/) (originally inspired by [MWGriffin/ansible-playbooks](https://github.com/MWGriffin/ansible-playbooks)).
