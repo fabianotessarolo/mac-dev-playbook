@@ -6,6 +6,7 @@ configure_terminal: true
 configure_osx: false
 configure_sudoers: false
 configure_dock: false
+configure_vscode: true
 
 dockitems_remove:
 # - Launchpad
@@ -91,3 +92,26 @@ pip_packages: []
 # Set to 'true' to configure Sublime Text
 # Glob pattern to ansible task files to run after all other tasks are finished.
 post_provision_tasks: []
+
+visual_studio_code_extensions:
+  - aaronthomas.vscode-snazzy-operator
+  - PKief.material-icon-theme
+
+visual_studio_code_settings_overwrite: true
+
+visual_studio_code_settings: {
+  "editor.fontFamily": "Fira Code",
+  "extensions.ignoreRecommendations": true,
+  "editor.minimap.enabled": false,
+  "editor.renderWhitespace": "all",
+  "workbench.sideBar.location": "left",
+  "workbench.statusBar.visible": true,
+  "editor.fontLigatures": true,
+  "files.autoSave": "onFocusChange",
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.fontSize": 14,
+  "editor.formatOnPaste": true,
+  "workbench.colorTheme": "Snazzy Operator",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.rulers": [80, 100, 120],
+}

@@ -27,6 +27,9 @@
     - role: geerlingguy.mac.dock
       when: configure_dock
       tags: ['dock']
+    - role: vscode
+      when: configure_vscode
+      tags: ['vscode-config']
     # - role: gantsign.visual-studio-code
 
   tasks:

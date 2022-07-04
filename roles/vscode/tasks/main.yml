@@ -1,0 +1,23 @@
+- name: create config directories for users
+  file:
+    path: '~/Library/Application Support/Code/User/'
+    state: directory
+    mode: 'u=rwx,go=rx'
+
+- name: write settings
+  template:
+    src: settings.json.j2
+    dest: '~/Library/Application Support/Code/User/settings.json'
+    force: '{{ visual_studio_code_settings_overwrite | default(False) | bool }}'
+    mode: 'u=rw,go='
+
+- name: Install Code CLI to Path
+  shell: |
+    cat << EOF >> ~/.zprofile
+    # Add Visual Studio Code (code)
+    export PATH="\$PATH:/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin"
+    EOF
+
+- name: Install Extensions via Vs Code CLI
+  command: code --install-extension {{ item }}
+  with_items: '{{ visual_studio_code_extensions }}'
