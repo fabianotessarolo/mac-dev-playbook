@@ -29,11 +29,6 @@
     recurse: yes
     state: directory
 
-- name: Ensure iTerm directories are initialized if they are not already.
-  command: "open -a /Applications/iTerm.app"
-  args:
-    creates: "~/Library/Application Support/iTerm2/DynamicProfiles/"
-
 - name: Ensure local DynamicProfiles are copied to iTerm2 directory.
   copy:
     src: "{{ role_path }}/files/{{ item }}"
@@ -62,3 +57,18 @@
   args:
     warn: no
   when: iterm2_shell_integration is defined and iterm2_shell_integration
+
+- name: Ensure iTerm directories are initialized if they are not already.
+  command: "open -a /Applications/iTerm.app"
+  args:
+    creates: "~/Library/Application Support/iTerm2/DynamicProfiles/"
+
+- name: Create Vim Colors Dir
+  file:
+    path: '~/.vim/colors/'
+    state: directory
+
+- name: Download Snazzy Vim Theme
+  get_url:
+    url: 'https://raw.githubusercontent.com/connorholyday/vim-snazzy/master/colors/snazzy.vim'
+    dest: '~/.vim/colors/snazzy.vim'
