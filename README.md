@@ -1,5 +1,12 @@
 # Mac Development Ansible Playbook
-This playbook installs and configures most of the software I use on my Mac for web and software development. Some things in macOS are slightly difficult to automate, so I still have a few manual installation steps, but at least it's all documented here.
+This playbook installs and configures most of the software I use on my Mac for web and software development.
+
+## Features
+Provides a stream workflow and developer tools:
+  - MacOS Apps: Command Line Tools, Goland, VsCode, 
+  - Terminal: Install and configure iTerm with Theme, Fonts, ZSH, OhMyZsh, Fuzzy Finder and others.
+  - DotFiles: Configures dotfiles, like ZSH, vi, and others
+  - VsCode: Installs and configure automaticaly
 
 ## Installation
   1. Ensure Apple's command line tools are installed (`xcode-select --install` to launch the installer).
