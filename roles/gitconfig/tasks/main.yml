@@ -1,0 +1,4 @@
+
+---
+  - import_tasks: monorepo.yml
+    when: gitconfig_configure_monorepo

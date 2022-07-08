@@ -7,6 +7,7 @@ configure_osx: false
 configure_sudoers: false
 configure_dock: false
 configure_vscode: true
+configure_gitconfig: true
 
 dockitems_remove:
 # - Launchpad
@@ -23,6 +24,11 @@ sudoers_custom_config: ''
 # sudoers_custom_config: |
 #   # Allow users in admin group to use sudo with no password.
 #   %admin ALL=(ALL) NOPASSWD: ALL
+
+# Adds the list of git repo to configure as monorepo
+gitconfig_configure_monorepo: true # configures monorepo enhancements
+gitconfig_target_repos:  #list of repo targets
+  #- "~/yourpath/here"
 
 dotfiles_repo: https://github.com/fabianotessarolo/dotfiles.git
 dotfiles_repo_accept_hostkey: true
@@ -59,7 +65,6 @@ homebrew_cask_apps:
   - goland
 
 homedir: "~"
-
 
 iterm2_dynamic_profiles_local: ['itermProfile.json']
 iterm2_preferences_custom_folder: ""

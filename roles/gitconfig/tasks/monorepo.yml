@@ -1,0 +1,47 @@
+- name: Enable many Files
+  community.general.git_config:
+    name: feature.manyFiles
+    scope: local
+    value: true
+    repo: "{{ item }}"
+  with_items: "{{ gitconfig_target_repos }}"
+
+- name: Enables OhMyZsh Hide Dirty
+  community.general.git_config:
+    name: oh-my-zsh.hide-dirty
+    scope: local
+    value: 1
+    repo: "{{ item }}"
+  with_items: "{{ gitconfig_target_repos }}"
+
+- name: Write Commit Graph # https://devblogs.microsoft.com/devops/supercharging-the-git-commit-graph/
+  community.general.git_config:
+    name: fetch.writeCommitGraph
+    scope: local
+    value: true
+    repo: "{{ item }}"
+  with_items: "{{ gitconfig_target_repos }}"
+
+- name: Reduce git verbosity merge stat
+  community.general.git_config:
+    name: merge.stat
+    scope: local
+    value: false
+    repo: "{{ item }}"
+  with_items: "{{ gitconfig_target_repos }}"
+
+- name: Reduce git verbosity rebase stat
+  community.general.git_config:
+    name: rebase.stat
+    scope: local
+    value: false
+    repo: "{{ item }}"
+  with_items: "{{ gitconfig_target_repos }}"
+
+- name: Reduce git verbosity rebase stat
+  community.general.git_config:
+    name: rebase.stat
+    scope: local
+    value: false
+    repo: "{{ item }}"
+  with_items: "{{ gitconfig_target_repos }}"

@@ -23,7 +23,11 @@ You can filter which part of the provisioning process to run by specifying a set
 ## Overriding Defaults
 Not everyone's development environment and preferred software configuration is the same.
 
-You can override any of the defaults configured in `default.config.yml` by creating a `config.yml` file and setting the overrides in that file. For example, you can customize the installed packages and apps with something like:
+You can override any of the defaults configured in `default.config.yml` by creating a `config.yml` file and setting the overrides in that file. 
+
+Another option is passing variables via command line: ansible-playbook --extra-vars "@~/Documents/my_custom_ansible_vars.yml"
+
+For example, you can customize the installed packages and apps with something like:
 
 ```yaml
 homebrew_installed_packages:

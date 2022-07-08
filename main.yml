@@ -30,7 +30,9 @@
     - role: vscode
       when: configure_vscode
       tags: ['vscode-config']
-    # - role: gantsign.visual-studio-code
+    - role: gitconfig
+      when: configure_gitconfig
+      tags: ['gitconfig']
 
   tasks:
     - import_tasks: tasks/sudoers.yml

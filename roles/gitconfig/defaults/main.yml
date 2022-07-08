@@ -1,0 +1,4 @@
+configure_gitconfig: true
+gitconfig_target_repos:  #list of repo targets
+  #- "~/yourpath/here"
+gitconfig_configure_monorepo: true
