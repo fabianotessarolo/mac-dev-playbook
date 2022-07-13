@@ -14,6 +14,16 @@
     repo: "{{ item }}"
   with_items: "{{ gitconfig_target_repos }}"
 
+- name: Enables OhMyZsh Hide Status
+  community.general.git_config:
+    name: oh-my-zsh.hide-status
+    scope: local
+    value: 1
+    repo: "{{ item }}"
+  with_items: "{{ gitconfig_target_repos }}"
+
+
+
 - name: Write Commit Graph # https://devblogs.microsoft.com/devops/supercharging-the-git-commit-graph/
   community.general.git_config:
     name: fetch.writeCommitGraph
